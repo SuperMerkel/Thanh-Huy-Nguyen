@@ -14,6 +14,8 @@ public class Calculator {
 
     private String latestOperation = "";
 
+    private boolean clearPressedOnce = false;
+
     /**
      * @return den aktuellen Bildschirminhalt als String
      */
@@ -45,9 +47,15 @@ public class Calculator {
      * im Ursprungszustand ist.
      */
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+        if (clearPressedOnce) {
+            screen = "0";
+            latestOperation = "";
+            latestValue = 0.0;
+            clearPressedOnce = false;
+        } else {
+            screen = "0";
+            clearPressedOnce = true;
+        }
     }
 
     /**
@@ -129,5 +137,8 @@ public class Calculator {
         if(screen.equals("Infinity")) screen = "Error";
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
         if(screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
+    }
+
+    public void pressBinaryOperationKey() {
     }
 }
