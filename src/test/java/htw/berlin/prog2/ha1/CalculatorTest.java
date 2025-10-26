@@ -1,10 +1,12 @@
 package htw.berlin.prog2.ha1;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Nested
 @DisplayName("Retro calculator")
 class CalculatorTest {
 
@@ -89,6 +91,23 @@ class CalculatorTest {
     }
 
 
+
     //TODO hier weitere Tests erstellen
+    @Test //teilaufgabe 1
+    void testPositiveSubtract() {
+    Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressEqualsKey();
+
+    String expected = "10";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+
+    }
 }
 
