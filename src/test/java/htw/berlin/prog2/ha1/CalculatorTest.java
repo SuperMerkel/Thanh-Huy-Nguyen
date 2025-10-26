@@ -109,5 +109,22 @@ class CalculatorTest {
     assertEquals(expected, actual);
 
     }
+
+    @Test//teilaufgabe 2
+    void testPotenzenrechnung() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("+");
+        calc.pressClearKey();
+        calc.pressDigitKey(5);
+        calc.pressEqualsKey();
+
+        String expected = "10";
+        String actual = calc.readScreen();
+
+
+
+        assertEquals(expected, actual);
+    }
 }
 
