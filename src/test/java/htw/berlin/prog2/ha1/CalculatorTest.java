@@ -126,5 +126,18 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test // teilaufgabe 2
+    void testNegativDigit()  {
+        Calculator calc = new Calculator();
+        calc.pressNegativeKey();
+        calc.pressDigitKey(6);
+
+        String expected = "-6";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
